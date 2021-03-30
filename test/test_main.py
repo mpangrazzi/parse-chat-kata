@@ -1,3 +1,4 @@
+from os.path import join
 from parse_chat_kata.parser import parser
 
 
@@ -19,7 +20,8 @@ def test_parse_single_sentence():
 
 
 def test_parse_multiple_sentences():
-    text = "14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus."
+    text = "14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n" \
+        "14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus."
 
     sentences = parser(text)
 
