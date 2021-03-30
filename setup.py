@@ -1,12 +1,12 @@
 from setuptools import setup, find_namespace_packages
 
 setup(
-    name="package_name", # TODO: replace package_name
+    name="package_name",  # TODO: replace package_name
     version="1.0.0",
-    description="Wonderflow Nice Package", # TODO: replace description
-    url="git@bitbucket.org:wonderflowbv/py-package_name.git", # TODO: replace url
-    author="Michele Pangrazzi", # TODO: replace author
-    author_email="michele@wonderflow.co", # TODO: replace author email
+    description="Wonderflow Nice Package",  # TODO: replace description
+    url="git@bitbucket.org:wonderflowbv/py-package_name.git",  # TODO: replace url
+    author="Michele Pangrazzi",  # TODO: replace author
+    author_email="michele@wonderflow.co",  # TODO: replace author email
     packages=find_namespace_packages(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"]
     ),
