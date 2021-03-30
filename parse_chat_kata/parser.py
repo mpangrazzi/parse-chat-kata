@@ -1,7 +1,7 @@
 import re
 
 
-def parser(text: str):
+def parse(text: str):
     return [parse_sentence(sent) for sent in text.splitlines(True)]
 
 
