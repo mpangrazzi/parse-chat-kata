@@ -12,7 +12,7 @@ def get_sentences(text: str):
     return (
         text.splitlines(True)
         if re.search("\n+", text)
-        else re.split(r"(?=%s)" % DATE_REGEX, text)
+        else re.split(r"(?=%s .*?:)" % DATE_REGEX, text)
     )
 
 
