@@ -1,7 +1,8 @@
 import re
 
 DATE_REGEX = r"\d{2}:\d{2}:\d{2}"
-DATE_NAME_REGEX = re.compile(r"(%s) (.*?: )" % DATE_REGEX)
+NAME_REGEX = r".+"
+DATE_NAME_REGEX = re.compile(r"(%s) (%s ?: )" % (DATE_REGEX, NAME_REGEX))
 
 
 def parse(text: str):
@@ -12,7 +13,7 @@ def get_sentences(text: str):
     return (
         text.splitlines(True)
         if re.search("\n+", text)
-        else re.split(r"(?=%s .*?:)" % DATE_REGEX, text)
+        else re.split(r"(?=%s %s ?:)" % (DATE_REGEX, NAME_REGEX), text)
     )
 
 
