@@ -109,3 +109,24 @@ def test_two_customer_mentions_as_start():
             "type": "agent",
         },
     ]
+
+
+def test_date_splitting():
+    text = "14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.14:26:15 Agent : Aliquam non cursus erat, ut blandit lectus."
+
+    sentences = parse(text)
+
+    assert sentences == [
+        {
+            "date": "14:24:32",
+            "mention": "14:24:32 Customer : ",
+            "sentence": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "type": "customer",
+        },
+        {
+            "date": "14:26:15",
+            "mention": "14:26:15 Agent : ",
+            "sentence": "Aliquam non cursus erat, ut blandit lectus.",
+            "type": "agent",
+        },
+    ]
