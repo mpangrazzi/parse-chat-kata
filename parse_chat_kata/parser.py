@@ -18,7 +18,6 @@ def get_sentences(text: str):
 
 
 def parse_sentence(sent: str):
-    print(f"sent {sent}")
     match = DATE_NAME_REGEX.match(sent)
 
     date, name = match.groups()
