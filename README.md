@@ -3,6 +3,8 @@ py-parse-chat-kata
 
 A Python solution of [parse-chat-kata](https://github.com/wonderflow-bv/parse-chat-kata).
 
+**Note**: This is a very basic solution where "Customer" is always the customer name and "Agent" is always the agent name (according to each step examples).
+
 
 ## Setup
 
