@@ -18,6 +18,21 @@ def test_parse_single_sentence():
     ]
 
 
+def test_parse_single_sentence_with_surname():
+    text = "14:24:32 Customer Service : Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+    sentences = parse(text)
+
+    assert sentences == [
+        {
+            "date": "14:24:32",
+            "mention": "14:24:32 Customer Service : ",
+            "sentence": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "type": "customer",
+        }
+    ]
+
+
 def test_parse_multiple_sentences():
     text = (
         "14:24:32 Customer : Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n"

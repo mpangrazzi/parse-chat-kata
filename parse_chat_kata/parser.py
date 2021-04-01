@@ -1,8 +1,8 @@
 import re
 
 DATE_REGEX = r"\d{2}:\d{2}:\d{2}"
-NAME_REGEX = r"\w+"
-DATE_NAME_REGEX = re.compile(r"^(%s) (%s :?\s?)" % (DATE_REGEX, NAME_REGEX))
+NAME_REGEX = r"\w+\s(\s?\w+\s?(?=:))?:?\s?"
+DATE_NAME_REGEX = re.compile(r"^(%s) (%s)" % (DATE_REGEX, NAME_REGEX))
 
 global customer_name
 
@@ -15,7 +15,7 @@ def get_sentences(text: str):
     sents = (
         text.splitlines(True)
         if re.search("\n+", text)
-        else re.split(r"(?=%s %s)" % (DATE_REGEX, NAME_REGEX), text)
+        else re.split(r"(?=%s \w+)" % DATE_REGEX, text)
     )
 
     return filter(None, sents)
@@ -25,7 +25,7 @@ def parse_sentence(i: int, sent: str):
     global customer_name
 
     match = DATE_NAME_REGEX.match(sent)
-    date, name = match.groups()
+    date, name, _ = match.groups()
 
     if i == 0:
         customer_name = name
